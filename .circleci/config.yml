@@ -1,5 +1,4 @@
 version: 2.1
-
 jobs:
   build:
     docker:
@@ -49,10 +48,10 @@ jobs:
       - run:
           name: Deploy to AWS S3
           command: |
-            if ["${CURRENT_BRANCH}" == "main"]
+            if [ "${CURRENT_BRANCH}" == "main" ]
             then
               aws --region $(AWS_REGION) s3 sync ~/repo/build s3://${AWS_PROD_BUCKET} --delete
-            elif ["${CURRENT_BRANCH}" == "staging"]
+            elif [ "${CURRENT_BRANCH}" == "staging" ]
             then 
               aws --region $(AWS_REGION) s3 sync ~/repo/build s3://${AWS_STG_BUCKET} --delete
             else
@@ -86,10 +85,10 @@ jobs:
           name: Deploy to AWS Cloudfront
           command: |
             aws configure set preview.cloudfront
-            if ["${CURRENT_BRANCH}" == "main"]
+            if [ "${CURRENT_BRANCH}" == "main" ]
             then
               aws cloudfront create-invalidation --distribution-id ${PRODUCTION_DISTRIBUTION_ID} --paths /\*
-            elif ["${CURRENT_BRANCH}" == "staging"]
+            elif [ "${CURRENT_BRANCH}" == "staging" ]
             then 
               aws cloudfront create-invalidation --distribution-id ${STAGING_DISTRIBUTION_ID} --paths /\*
             else
