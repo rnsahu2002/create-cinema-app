@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
-  console.log("ram")
+  console.log("ram122")
   return (
 
     <div className="App">
@@ -23,7 +23,4 @@ const App = () => {
     </div>
   );
 }
-
-
-
 export default App;
