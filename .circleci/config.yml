@@ -9,6 +9,12 @@ jobs:
       - run:
           name: Show current branch
           command: echo "${CIRCLE_BRANCH}"
+      - run:
+          name: Show Distribution stagging
+          command: echo "${STAGING_DISTRIBUTION_ID}"
+      - run:
+          name: Show Distribution Prod
+          command: echo "${PRODUCTION_DISTRIBUTION_ID}"
       - restore_cache:
           keys:
             - app-{{ checksum "package.json" }}
@@ -30,12 +36,6 @@ jobs:
       - run:
           name: Show current branch
           command: echo "${CIRCLE_BRANCH}"
-      - run:
-          name: Show Distribution stagging
-          command: echo "${STAGING_DISTRIBUTION_ID}"
-      - run:
-          name: Show Distribution Prod
-          command: echo "${PRODUCTION_DISTRIBUTION_ID}"
       - run:
           name: installing AWS CLI
           working_directory: /
