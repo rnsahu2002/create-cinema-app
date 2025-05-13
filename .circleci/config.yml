@@ -17,12 +17,12 @@ aliases:
   - &install-dependencies
     run:
       name: Install dependencies
-        command: npm install
+      command: npm install
   - &save-caches
     save_cache:
       paths:
         - node_modules
-      key: app-{{ checksum "package.json" }}  
+      key: app-{{ checksum "package.json" }}
   - &install-aws-cli
     run:
       name: installing AWS CLI
