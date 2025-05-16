@@ -89,8 +89,6 @@ jobs:
           command: npm run prettier:check
 
   deploy-to-aws-s3:
-
-
     executor: app-executor
     steps:
       - checkout
@@ -140,14 +138,14 @@ jobs:
           events: 'always'
           channel: 'cinemapp-circleci'
           template: ''
-          custom:
+          custom: |
             {
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "${CIRCLECI_BRANCH} branch deployment to aws s3 and cloudfront complete. ",
+                    "text": "${CIRCLE_BRANCH} branch deployment to aws s3 and cloudfront complete.",
                     "emoji": true
                   }
                 },
@@ -167,9 +165,9 @@ jobs:
                     {
                       "type": "button",
                       "text": {
-                         "type": "plain_text", 
-                         "text": "view job" 
-                        },
+                        "type": "plain_text", 
+                        "text": "view job"
+                      },
                       "url": "${CIRCLE_BUILD_URL}"
                     }
                   ]
