@@ -135,9 +135,7 @@ jobs:
     steps:
       - run: echo "Slack notification"
       - slack/notify:
-          events: 'always'
           channel: 'cinemapp-circleci'
-          template: ''
           custom: |
             {
               "blocks": [
