@@ -152,7 +152,7 @@ workflows:
       - test
       - linting:
           requires:
-            - build
+            - test
           filters:
             branches:
               only:
