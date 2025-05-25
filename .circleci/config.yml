@@ -16,7 +16,7 @@ executors:
 
 aliases:
   - &show-current-branch-name
-  - run:
+    run:
       name: Show current branch
       command: echo ${CIRCLE_BRANCH}
 
