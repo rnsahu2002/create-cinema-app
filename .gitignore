@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Terraform files
+.terraform/
+terraform.tfstate*
+*.terraform.lock.hcl
+.terraform/*
+# Node modules
+node_modules/
+.infrastructure/.terraform/
+.infrastructure/.terraform.lock.hcl
